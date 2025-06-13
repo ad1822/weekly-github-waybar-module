@@ -6,11 +6,16 @@ import json
 from collections import OrderedDict
 import os
 from dotenv import load_dotenv
+import sys
 
 load_dotenv()
 
 GITHUB_USERNAME = os.getenv("GITHUB_USERNAME")
 GITHUB_PAT = os.getenv("GITHUB_PAT")
+
+if not GITHUB_USERNAME or not GITHUB_PAT:
+    raise ValueError("GITHUB_USERNAME or GITHUB_PAT not set in .env")
+
 
 today = datetime.date.today()
 start_of_week = today - datetime.timedelta(days=(today.weekday() + 1) % 7)
@@ -46,7 +51,15 @@ headers = {
     "Accept": "application/vnd.github.v4.idl"
 }
 
-COLOR_SCHEME = {
+COLOR_SCHEME_DARK = {
+    0: "#161b22",   # No contributions
+    1: "#0e4429",   # 1-3 commits
+    2: "#006d32",   # 4-6 commits
+    3: "#26a641",   # 7-9 commits
+    4: "#39d353"    # 10+ commits
+}
+
+COLOR_SCHEME_LIGHT = {
     0: "#ebedf0",   # No contributions
     1: "#9be9a8",   # 1-3 commits
     2: "#40c463",   # 4-6 commits
@@ -54,23 +67,29 @@ COLOR_SCHEME = {
     4: "#216e39"    # 10+ commits
 }
 
-def get_color(count):
-    """Get color based on commit count"""
+
+theme = sys.argv[1].upper() if len(sys.argv) > 1 else "DARK"
+if theme not in ["DARK", "LIGHT"]:
+    print(f"Unknown theme '{theme}', defaulting to DARK.")
+    theme = "DARK"
+
+def get_color(count, theme):
+    """Return heatmap color based on commit count and theme."""
+    scheme = COLOR_SCHEME_DARK if theme == "DARK" else COLOR_SCHEME_LIGHT
+
     if count == 0:
-        return COLOR_SCHEME[0]
+        return scheme[0]
     elif 1 <= count <= 3:
-        return COLOR_SCHEME[1]
+        return scheme[1]
     elif 4 <= count <= 6:
-        return COLOR_SCHEME[2]
+        return scheme[2]
     elif 7 <= count <= 9:
-        return COLOR_SCHEME[3]
+        return scheme[3]
     else:
-        return COLOR_SCHEME[4]
+        return scheme[4]
 
 def get_weekday_name(weekday):
-    # Adjust Python's Mon=0..Sun=6 to Sun=0..Sat=6
     return ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"][(weekday + 1) % 7]
-
 
 try:
     response = requests.post(
@@ -100,7 +119,7 @@ try:
     total_contributions = 0
 
     for date, count in contributions.items():
-        color = get_color(count)
+        color = get_color(count,theme)
         dots.append(f'<span foreground="{color}">■</span>')
         weekday = get_weekday_name(date.weekday())
         # Format: "Sun (5/1): 4 commits"
