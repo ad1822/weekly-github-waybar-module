@@ -28,9 +28,16 @@ Designed for seamless integration with status bars like **Waybar**, **Polybar**,
 | 10+           | `#216e39`  | Very high activity |
 
 
+## Example
+
+![commits](image.png)
+
+![whole](image-2.png)
+
+![half](image-1.png)
+
 ---
 
-````markdown
 ## Setup
 
 ### 1. Clone the Repository
