@@ -19,7 +19,7 @@ Designed for seamless integration with status bars like **Waybar**, **Polybar**,
 
 ## 🎨 Color Levels
 
-#### Dark Theme (By Default, If not argv passed)
+#### Dark Theme (By Default, If no argv passed)
 | Contributions | Color Hex  | Meaning            |
 |---------------|------------|--------------------|
 | 0             | `#161b22`  | No contributions   |
@@ -27,6 +27,8 @@ Designed for seamless integration with status bars like **Waybar**, **Polybar**,
 | 4–6           | `#006d32`  | Moderate activity  |
 | 7–9           | `#26a641`  | High activity      |
 | 10+           | `#39d353`  | Very high activity |
+
+![Dark Theme](Assets/dark.png)
 
 #### Light Theme
 | Contributions | Color Hex  | Meaning            |
@@ -37,6 +39,7 @@ Designed for seamless integration with status bars like **Waybar**, **Polybar**,
 | 7–9           | `#30a14e`  | High activity      |
 | 10+           | `#216e39`  | Very high activity |
 
+![Light Theme](Assets/white.png)
 
 
 ## Example
