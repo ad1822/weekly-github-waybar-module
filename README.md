@@ -130,3 +130,6 @@ Then add styling in your `style.css`:
 > ```bash
 > chmod +x ~/.config/waybar/scripts/weekly_commits
 > ```
+
+👉 Check out my custom Hyprland dotfiles: [**hyprdots**](https://github.com/ad1822/hyprdots)
+If you like it, consider giving it a ⭐ — it helps!
