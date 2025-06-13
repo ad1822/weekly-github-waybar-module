@@ -30,11 +30,11 @@ Designed for seamless integration with status bars like **Waybar**, **Polybar**,
 
 ## Example
 
-![commits](image.png)
+![commits](Assets/image.png)
 
-![whole](image-2.png)
+![whole](Assets/image-2.png)
 
-![half](image-1.png)
+![half](Assets/image-1.png)
 
 ---
 
