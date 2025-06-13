@@ -19,6 +19,16 @@ Designed for seamless integration with status bars like **Waybar**, **Polybar**,
 
 ## 🎨 Color Levels
 
+#### Dark Theme (By Default, If not argv passed)
+| Contributions | Color Hex  | Meaning            |
+|---------------|------------|--------------------|
+| 0             | `#161b22`  | No contributions   |
+| 1–3           | `#0e4429`  | Low activity       |
+| 4–6           | `#006d32`  | Moderate activity  |
+| 7–9           | `#26a641`  | High activity      |
+| 10+           | `#39d353`  | Very high activity |
+
+#### Light Theme
 | Contributions | Color Hex  | Meaning            |
 |---------------|------------|--------------------|
 | 0             | `#ebedf0`  | No contributions   |
@@ -26,6 +36,7 @@ Designed for seamless integration with status bars like **Waybar**, **Polybar**,
 | 4–6           | `#40c463`  | Moderate activity  |
 | 7–9           | `#30a14e`  | High activity      |
 | 10+           | `#216e39`  | Very high activity |
+
 
 
 ## Example
@@ -90,12 +101,12 @@ Add the following block to your Waybar `config.jsonc`:
 
 ```jsonc
 "custom/gh_heatmap": {
-  "exec": "~/.config/waybar/scripts/weekly_commits",
+  "exec": "~/.config/waybar/scripts/weekly_commits DARK/LIGHT",
   "return-type": "json",
   "interval": 2400,
   "tooltip": true,
   "on-click": "xdg-open https://github.com/ad1822",
-  "on-click-right": "~/.config/waybar/scripts/weekly_commits"
+  "on-click-right": "~/.config/waybar/scripts/weekly_commits DARK/LIGHT"
 }
 ```
 
@@ -103,7 +114,7 @@ Then add styling in your `style.css`:
 
 ```css
 #custom-gh_heatmap {
-  color: #39d353; /* Default color for contributions */
+  color: #39d353;
   background: @raisin-black;
   border-radius: 6px;
   margin-right: 2px;
