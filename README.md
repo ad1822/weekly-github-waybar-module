@@ -43,7 +43,7 @@ Designed for seamless integration with status bars like **Waybar**, **Polybar**,
 ### 1. Clone the Repository
 
 ```bash
-git clone https://github.com/yourusername/github-weekly-heatmap.git
+git clone https://github.com/ad1822/github-weekly-heatmap.git
 cd github-weekly-heatmap
 ````
 
