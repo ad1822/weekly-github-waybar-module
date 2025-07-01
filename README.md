@@ -1,6 +1,6 @@
-<div align="center">
-  <h1>🟩🟩⬛🟩⬛</h1>
-</div>
+<!-- <div -->
+  <h1 align="center">🟩🟩⬛🟩⬛</h1>
+<!-- </div> -->
 
 # GitHub Weekly Contributions Widget for Waybar
 
