@@ -44,11 +44,15 @@ Designed for seamless integration with status bars like **Waybar**, **Polybar**,
 
 ## Example
 
-![commits](Assets/image.png)
 
-![whole](Assets/image-2.png)
+| Preview                         |
+|---------------------------------|
+| ![commits](Assets/image.png)    |
+|                                 |
+| ![whole](Assets/image-2.png)    |
+|                                 |
+| ![half](Assets/image-1.png)     |
 
-![half](Assets/image-1.png)
 
 ---
 
@@ -104,21 +108,23 @@ Add the following block to your Waybar `config.jsonc`:
 
 ```jsonc
 "custom/gh_heatmap": {
-  "exec": "~/.config/waybar/scripts/weekly_commits DARK/LIGHT",
+  "exec": "sleep 1 & ~/.config/waybar/scripts/weekly_commits DARK/LIGHT",
   "return-type": "json",
   "interval": 2400,
   "tooltip": true,
-  "on-click": "xdg-open https://github.com/ad1822",
+  "on-click": "xdg-open https://github.com/<your-github-username>",
   "on-click-right": "~/.config/waybar/scripts/weekly_commits DARK/LIGHT"
 }
 ```
+- On `click` of that module, Your github profile open in browser
+- On `right-click` of that module, You can refresh module, So it can fetch latest commit data
 
 Then add styling in your `style.css`:
 
 ```css
 #custom-gh_heatmap {
   color: #39d353;
-  background: @raisin-black;
+  background: rgba(30, 30, 46,0.89); // Put your own background color
   border-radius: 6px;
   margin-right: 2px;
   padding: 0px 8px;
