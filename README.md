@@ -1,4 +1,8 @@
-# 🟩🟩⬛🟩⬛ GitHub Weekly Contributions Widget for Waybar
+<div align="center">
+  <h1>🟩🟩⬛🟩⬛</h1>
+</div>
+
+# GitHub Weekly Contributions Widget for Waybar
 
 A terminal or bar integration script that fetches your **GitHub contribution activity for the current week (Sunday to Today)** using the GitHub GraphQL API and renders a **colored heatmap** with detailed tooltips.
 
